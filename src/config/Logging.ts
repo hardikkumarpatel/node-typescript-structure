@@ -1,30 +1,25 @@
-const logging = (): string => {
-    return new Date().toISOString();
-};
+export class Logging {
+    logging = (): string => {
+        return new Date().toISOString();
+    };
 
-const infoMessage = (namespace: string, message: string, object?: any) => {
-    if (object) console.log(`[${logging()}] [INFO] [${namespace}] [${message}]`, object);
-    else console.log(`[${logging()}] [INFO] [${namespace}] [${message}]`);
-};
+    infoMessage = (namespace: string, message: string, object?: any) => {
+        if (object) console.log(`[${this.logging()}] [INFO] [${namespace}] [${message}]`, object);
+        else console.log(`[${this.logging()}] [INFO] [${namespace}] [${message}]`);
+    };
 
-const errorMessage = (namespace: string, message: string, object?: any) => {
-    if (object) console.error(`[${logging()}] [ERROR] [${namespace}] [${message}]`, object);
-    else console.error(`[${logging()}] [ERROR] [${namespace}] [${message}]`);
-};
+    errorMessage = (namespace: string, message: string, object?: any) => {
+        if (object) console.error(`[${this.logging()}] [ERROR] [${namespace}] [${message}]`, object);
+        else console.error(`[${this.logging()}] [ERROR] [${namespace}] [${message}]`);
+    };
 
-const warnMessage = (namespace: string, message: string, object?: any) => {
-    if (object) console.warn(`[${logging()}] [WARN] [${namespace}] [${message}]`, object);
-    else console.warn(`[${logging()}] [WARN] [${namespace}] [${message}]`);
-};
+    warnMessage = (namespace: string, message: string, object?: any) => {
+        if (object) console.warn(`[${this.logging()}] [WARN] [${namespace}] [${message}]`, object);
+        else console.warn(`[${this.logging()}] [WARN] [${namespace}] [${message}]`);
+    };
 
-const debugMessage = (namespace: string, message: string, object?: any) => {
-    if (object) console.debug(`[${logging()}] [DEBUG] [${namespace}] [${message}]`, object);
-    else console.debug(`[${logging()}] [DEBUG] [${namespace}] [${message}]`);
-};
-
-export default {
-    infoMessage,
-    errorMessage,
-    warnMessage,
-    debugMessage
-};
+    debugMessage = (namespace: string, message: string, object?: any) => {
+        if (object) console.debug(`[${this.logging()}] [DEBUG] [${namespace}] [${message}]`, object);
+        else console.debug(`[${this.logging()}] [DEBUG] [${namespace}] [${message}]`);
+    };
+}
