@@ -2,7 +2,7 @@ import { Logging } from './../config/Logging';
 import { NextFunction, Request, Response } from 'express';
 const NAMESPACE = 'WelcomeMessage';
 
-const WelcomeMessage = (req: Request, res: Response, next: NextFunction) => {
+export const WelcomeMessage = (req: Request, res: Response, next: NextFunction) => {
     try {
         new Logging().infoMessage(NAMESPACE, `${req.url} : ${req.method}`, req.ip);
         res.status(200).send({
@@ -18,5 +18,3 @@ const WelcomeMessage = (req: Request, res: Response, next: NextFunction) => {
         });
     }
 };
-
-export default WelcomeMessage;
